@@ -1,9 +1,7 @@
-package hu.bme.mit.pribelszki.model;
+package main.java.hu.bme.mit.pribelszki.model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Maze {
 
