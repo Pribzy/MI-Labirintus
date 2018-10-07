@@ -17,6 +17,10 @@ public class Maze {
         input.makeFields();*/
 
 
+
+    }
+
+    public Maze(String level){
         Field f1 = new Field(1,this); f1.setCoordX(0); f1.setCoordY(0);
         Field f2 = new Field(2,this); f2.setCoordX(0); f2.setCoordY(1);
         Field f3 = new Field(3,this); f3.setCoordX(0); f3.setCoordY(2);
@@ -49,10 +53,6 @@ public class Maze {
         this.treasures.add(t2);
         f5.addTreasure(t2);
 
-
-
-
-
         fields.add(f1);
         fields.add(f2);
         fields.add(f3);
@@ -68,23 +68,46 @@ public class Maze {
 
     //Functions---------------------------
 
+    public void addField(Field f){
+        this.fields.add(f);
+    }
+
+    public void addTreasure(Treasure t){
+        this.treasures.add(t);
+        treasureNumber++;
+    }
+
+    public void removeTreasure(Treasure t){
+        this.treasures.remove(t);
+
+    }
+
+    public int getTreasureNumber() {
+        return treasureNumber;
+    }
+
+    public List<Field> getFields() {
+        return fields;
+    }
 
     public List<Treasure> getTreasures() {
         return treasures;
     }
 
-    public void run(){
+    public void run() {
 
-        for (int i = 0; i <treasureNumber ; i++) {
-            getClosestTreasure().getField().searchClosestRoute();
-            clearFields();
-        }
+            for (int i = 0; i <treasureNumber ; i++) {
+                getClosestTreasure().getField().doShortestRoute();
+                clearFields();
+            }
 
-        getExitField().searchClosestRoute();
 
-        }
+            getExitField().doShortestRoute();
 
-        private void clearFields(){
+    }
+
+    public void clearFields(){
+
             for (Field field : fields) {
                 Route newRoute = new Route();
                 newRoute.addFieldToRoute(field);
@@ -92,19 +115,21 @@ public class Maze {
                 field.setWasHere(false);
                 field.setHeuristicValue(0);
             }
-        }
-
-    private Treasure getClosestTreasure(){
-        Treasure closestTreasure = new Treasure();
+    }
 
 
+
+
+
+
+
+
+    public Treasure getClosestTreasure(){
+        Treasure closestTreasure;
 
         for (Treasure t:treasures) {
-            int distance = ((t.getField().getCoordX())-(Adventurer.getInstance().getField().getCoordX()))+
-                    ((t.getField().getCoordY())-(Adventurer.getInstance().getField().getCoordY()));
-            t.setDistance(distance);
+            t.calculateDistanceFromAdventurer();
         }
-
         int min = 0;
         if(treasures.size()!=1) {
 
@@ -118,14 +143,10 @@ public class Maze {
 
         }
         closestTreasure = treasures.get(min);
-
-
         return closestTreasure;
-
     }
 
-
-    private Field getExitField(){
+    public Field getExitField(){
         return fields.get(fields.size()-1);
     }
 

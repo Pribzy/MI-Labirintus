@@ -13,9 +13,6 @@ public class Treasure {
         return distance;
     }
 
-    public void setDistance(int distance) {
-        this.distance = distance;
-    }
 
     public void setField(Field f){
         this.field=f;
@@ -23,6 +20,13 @@ public class Treasure {
 
     public Field getField() {
         return field;
+    }
+
+    public void calculateDistanceFromAdventurer(){
+        Adventurer a = Adventurer.getInstance();
+        distance = ((field.getCoordX())-(a.getField().getCoordX()))+
+                ((field.getCoordY())-(a.getField().getCoordY()));
+
     }
 
 

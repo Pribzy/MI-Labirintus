@@ -11,10 +11,8 @@ public class Field {
     private Treasure treasure;
     private Route route = new Route();
     private Maze maze;
-
     private Boolean wasHere =false;
     private int Id;
-
     private int coordX;
     private int coordY;
     private int heuristicValue=0;
@@ -25,11 +23,31 @@ public class Field {
         this.Id=id;
         this.maze=m;
     }
+    public Field() {
+        route.addFieldToRoute(this);
+
+    }
+    public Field(Maze m) {
+        route.addFieldToRoute(this);
+        this.maze=m;
+    }
+    public Field(int x,int y) {
+        route.addFieldToRoute(this);
+        this.coordX=x;
+        this.coordY=y;
+    }
+
+    public Field(int x,int y,Maze m) {
+        route.addFieldToRoute(this);
+        this.coordX=x;
+        this.coordY=y;
+        this.maze =m;
+    }
 
     //Functions
-    public Field getNextField(Direction d){
-        Field nextField = neighbors.get(d);
-        return nextField;
+
+    public Adventurer getAdventurer() {
+        return adventurer;
     }
 
     public void setMaze(Maze maze) {
@@ -48,14 +66,11 @@ public class Field {
     }
 
     public void removeTreasure(){
-        maze.getTreasures().remove(treasure);
+        maze.removeTreasure(treasure);
         this.treasure=null;
 
     }
 
-    public void addRoute(Route r){
-        this.route = r;
-    }
 
     public void setWasHere(Boolean b){
         this.wasHere=b;
@@ -73,7 +88,9 @@ public class Field {
         adventurer.setField(this);
     }
     public void removeAdventurer() {
+        this.adventurer.setField(null);
         this.adventurer = null;
+
 
     }
 
@@ -112,7 +129,12 @@ public class Field {
 
         System.out.println(this.coordX+" "+this.coordY);
 
+
+
+
+
     }
+
 
     public Route getRoute() {
         return route;
@@ -132,7 +154,6 @@ public class Field {
 
 
 
-
     public int calculateHeuristics(Direction d){
 
         int heuristic=-1;
@@ -149,9 +170,7 @@ public class Field {
     }
 
 
-
-
-    public void searchClosestRoute(){
+    public void doShortestRoute(){
         this.wasHere=true;
         if(this.adventurer!=null){
             route.removeFieldFromRoute(this);
@@ -160,7 +179,7 @@ public class Field {
         }
         else {
 
-           // recursiveSearch(min.getKey());
+
             recursiveSearch(Direction.LEFT);
             recursiveSearch(Direction.DOWN);
             recursiveSearch(Direction.UP);
@@ -180,7 +199,7 @@ public class Field {
                     this.neighbors.get(d).getRoute().addFieldToRoute(this.route.getFields().get(i));
 
                 }
-                    this.neighbors.get(d).searchClosestRoute();
+                    this.neighbors.get(d).doShortestRoute();
 
             }
         }

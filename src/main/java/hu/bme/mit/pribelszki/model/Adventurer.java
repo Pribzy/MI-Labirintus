@@ -6,6 +6,7 @@ import java.util.List;
 public class Adventurer {
     //Fields
     private Field field;
+    private List<Treasure> treasures = new ArrayList<Treasure>();
 
     //Init
     private static Adventurer ourInstance = new Adventurer();
@@ -28,18 +29,35 @@ public class Adventurer {
         List<Field> routeFields = new ArrayList<Field>();
         routeFields = field.getRoute().getFields();
 
-
         for (Field f: routeFields) {
-            field.removeAdventurer();
-            f.stepOn(this);
+           Step(f);
 
         }
+
         if(field.getTreasure()!=null) {
+            treasures.add(field.getTreasure());
             System.out.println("felvesz");
+
             field.removeTreasure();
         }
 
+    }
 
+    public void Step(Field f){
+        field.removeAdventurer();
+        f.stepOn(this);
 
+    }
+
+    public void addTreasure(Treasure t){
+        treasures.add(t);
+    }
+
+    public List<Treasure> getTreasures() {
+        return treasures;
+    }
+
+    public void setTreasures(List<Treasure> treasures) {
+        this.treasures = treasures;
     }
 }
