@@ -1,6 +1,7 @@
-package hu.bme.mit.pribelszki;
+package main.java.hu.bme.mit.pribelszki;
 
-import hu.bme.mit.pribelszki.model.Maze;
+
+import main.java.hu.bme.mit.pribelszki.model.Maze;
 
 public class Main {
 

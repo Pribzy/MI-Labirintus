@@ -1,4 +1,4 @@
-package hu.bme.mit.pribelszki.model;
+package main.java.hu.bme.mit.pribelszki.model;
 
 import java.util.ArrayList;
 import java.util.Scanner;
