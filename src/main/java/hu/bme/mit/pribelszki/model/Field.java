@@ -23,6 +23,11 @@ public class Field {
         this.Id=id;
         this.maze=m;
     }
+    public Field(int id) {
+        route.addFieldToRoute(this);
+        this.Id=id;
+
+    }
     public Field() {
         route.addFieldToRoute(this);
 
@@ -60,6 +65,7 @@ public class Field {
 
 
     public void addTreasure(Treasure t){
+        maze.addTreasure(t);
         this.treasure=t;
         t.setField(this);
 
@@ -180,10 +186,10 @@ public class Field {
         else {
 
 
+            recursiveSearch(Direction.RIGHT);
+            recursiveSearch(Direction.UP);
             recursiveSearch(Direction.LEFT);
             recursiveSearch(Direction.DOWN);
-            recursiveSearch(Direction.UP);
-            recursiveSearch(Direction.RIGHT);
 
 
 
