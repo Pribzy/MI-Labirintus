@@ -42,13 +42,7 @@ public class AdventurerTest {
         assertNull(actualField.getAdventurer());
 
     }
-    @Test
-    public void addTreasure_ToAdventurer_Succes(){
-        Treasure t = new Treasure();
-        adventurer.addTreasure(t);
-        assertEquals(1,adventurer.getTreasures().size());
-
-    }
+    
 
 
 
