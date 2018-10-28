@@ -1,6 +1,6 @@
 package test.java;
 
-import main.java.hu.bme.mit.pribelszki.model.*;
+import main.java.hu.bme.mit.pribelszki.*;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
@@ -122,7 +122,7 @@ public class MazeTest {
         Field fieldT1 = new Field(1,0,maze); fieldT1.addTreasure(T1); maze.addField(fieldT1);
         Field fieldT2 = new Field(0,1,maze); fieldT2.addTreasure(T2); maze.addField(fieldT2);
         Field fieldEnd = new Field(1,1,maze);                           maze.addField(fieldEnd);
-        fieldA.setNextField(fieldT2,Direction.DOWN);
+        fieldA.setNextField(fieldT2, Direction.DOWN);
         fieldT1.setNextField(fieldEnd,Direction.DOWN);
         fieldT2.setNextField(fieldEnd,Direction.RIGHT); fieldT2.setNextField(fieldA,Direction.UP);
         fieldEnd.setNextField(fieldT1,Direction.UP); fieldEnd.setNextField(fieldT2,Direction.LEFT);

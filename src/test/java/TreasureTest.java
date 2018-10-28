@@ -1,9 +1,9 @@
 package test.java;
 
-import main.java.hu.bme.mit.pribelszki.model.Adventurer;
-import main.java.hu.bme.mit.pribelszki.model.Field;
-import main.java.hu.bme.mit.pribelszki.model.Maze;
-import main.java.hu.bme.mit.pribelszki.model.Treasure;
+import main.java.hu.bme.mit.pribelszki.Adventurer;
+import main.java.hu.bme.mit.pribelszki.Field;
+import main.java.hu.bme.mit.pribelszki.Maze;
+import main.java.hu.bme.mit.pribelszki.Treasure;
 import org.junit.Before;
 import org.junit.Test;
 

@@ -6,7 +6,7 @@
 
     <groupId>hu.bme.mit.pribelszki</groupId>
     <artifactId>Labirintus</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.2</version>
 
     <properties>
         <maven.compiler.source>1.8</maven.compiler.source>
@@ -45,7 +45,23 @@
                     </execution>
                 </executions>
             </plugin>
+            <plugin>
+                <!-- Build an executable JAR -->
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>3.1.0</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                            <mainClass>main.java.hu.bme.mit.pribelszki.Main</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
+
     </build>
 
 

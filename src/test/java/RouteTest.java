@@ -1,7 +1,7 @@
 package test.java;
 
-import main.java.hu.bme.mit.pribelszki.model.Field;
-import main.java.hu.bme.mit.pribelszki.model.Route;
+import main.java.hu.bme.mit.pribelszki.Field;
+import main.java.hu.bme.mit.pribelszki.Route;
 import org.junit.*;
 
 import static junit.framework.TestCase.assertEquals;

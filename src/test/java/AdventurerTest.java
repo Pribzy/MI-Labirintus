@@ -1,6 +1,7 @@
 package test.java;
 
-import main.java.hu.bme.mit.pribelszki.model.*;
+import main.java.hu.bme.mit.pribelszki.Adventurer;
+import main.java.hu.bme.mit.pribelszki.Field;
 import org.junit.*;
 
 import static junit.framework.TestCase.assertEquals;

@@ -1,10 +1,8 @@
 package test.java;
 
-import main.java.hu.bme.mit.pribelszki.model.Adventurer;
-import main.java.hu.bme.mit.pribelszki.model.Direction;
-import main.java.hu.bme.mit.pribelszki.model.Field;
-import main.java.hu.bme.mit.pribelszki.model.Route;
-import org.junit.After;
+import main.java.hu.bme.mit.pribelszki.Adventurer;
+import main.java.hu.bme.mit.pribelszki.Direction;
+import main.java.hu.bme.mit.pribelszki.Field;
 import org.junit.Before;
 import org.junit.Test;
 

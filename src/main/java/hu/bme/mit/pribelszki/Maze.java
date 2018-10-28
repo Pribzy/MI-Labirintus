@@ -1,8 +1,6 @@
-package main.java.hu.bme.mit.pribelszki.model;
+package main.java.hu.bme.mit.pribelszki;
 
-import java.io.BufferedReader;
 import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
@@ -48,25 +46,19 @@ public class Maze {
 
         Scanner input = new Scanner(System.in);
 
-        try {
-            lineNew = input.nextLine();
-            lines.add(lineNew);
+
+        lineNew = input.nextLine();
+        lines.add(lineNew);
 
             while (lineNew.length()>2) {
                 lineNew = input.nextLine();
-               // System.out.println(lineNew);
-                /*if (lineNew.length()==1) {
-                    break;
-                }*/
 
                 if(lineNew.length()>2) {
                     lines.add(lineNew);
                 }
             }
 
-        }catch (Exception e){
 
-        }
 
         input.close();
 

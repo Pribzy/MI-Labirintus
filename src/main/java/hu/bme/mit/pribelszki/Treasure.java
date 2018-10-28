@@ -1,4 +1,4 @@
-package main.java.hu.bme.mit.pribelszki.model;
+package main.java.hu.bme.mit.pribelszki;
 
 public class Treasure {
     //Fields
